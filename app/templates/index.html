@@ -1,1 +1,10 @@
-i'm work
+{% extends 'base.html' %}
+{% block content %}
+    {{ form.add_task_field() }}
+    {{ form.submit_button() }}
+    <br>
+    {% for task in tasks %}
+        <p>{{ task.body }}</p>
+        {{ form.delete_button() }}
+    {% endfor %}
+{% endblock %}
