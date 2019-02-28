@@ -1,10 +1,14 @@
-from flask_wtf import FlaskForm
-from wtforms import StringField, SubmitField
-from wtforms.validators import DataRequired
+from app import db
+from datetime import datetime
 
 
-class Task(FlaskForm):
-    add_task_field = StringField('What you want do?', validators=[DataRequired()])
-    submit_button = SubmitField('+')
-    delete_button = SubmitField('-')
+class Task(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    body = db.Column(db.String(140))
+    created = db.Column(db.Integer, default=datetime.now())
 
+    def __init__(self, *args, **kwargs):
+        super(Task, self).__init__(*args, **kwargs)
+
+    def __repr__(self):
+        return '<id: {0} body: {1}>'.format(self.id, self.body)
