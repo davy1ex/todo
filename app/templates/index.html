@@ -1,13 +1,14 @@
 {% extends 'base.html' %}
 {% block content %}
     <form action='' method='post' navalidate>
+        {{ form.csrf_token }}
         {{ form.add_task_field.label }} <br>
         {{ form.add_task_field() }}
         {{ form.submit_button() }}
         <br>
         {% for task in tasks %}
             <p>
-                {{ task.body }}
+                {{ task.body }} {{ form.delete_button(id=task.id, action='/del_task(task.id)') }}
             </p>
         {% endfor %}
     </form>

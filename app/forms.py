@@ -4,7 +4,7 @@ from wtforms.validators import DataRequired
 
 
 class NewTaskForm(FlaskForm):
-    add_task_field = StringField('What you want do?', validators=[DataRequired()])
+    add_task_field = StringField('What you want do?')
     submit_button = SubmitField('+')
-    # delete_button = SubmitField('-')
+    delete_button = SubmitField('-')
 
