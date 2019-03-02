@@ -4,7 +4,6 @@ import os
 class Config():
     DEBUG = True
     SECRET_KEY = "RANDOM_KEY"
-    # РАЗМЕТКА ДИРЕКТОРИИ ТОЛЬКО ПОД ЛИНУКС
-    current_dir = os.getcwd()
-    SQLALCHEMY_DATABASE_URI = 'sqlite:///' + current_dir + '/tasks.db'
+    current_dir = os.getcwd() # текущая дирректория
+    SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(current_dir, 'app', 'tasks.db') # склеивает воедино приставку sqlite, текущую дирректорию и папку для бд
     SQLALCHEMY_TRACK_MODIFICATIONS = False
