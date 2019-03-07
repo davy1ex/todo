@@ -1,0 +1,65 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:visited {
+    color: black;
+}
+
+a:hover {
+    color: red;
+}
+
+header ul {
+    margin-left: auto;
+    margin-right: auto;
+    width: 450px;
+    white-space: : 10px;
+    text-align: center;
+}
+
+header a {
+    padding: 10px;
+}
+
+.reg-login {
+    margin-left: auto;
+    margin-right: auto;
+    align-items: center;
+    /*width: 13em;*/
+    width: 100%;
+    /*vertical-align: middle;*/
+
+}
+
+.task {
+    margin-left: auto;
+    margin-right: auto;
+    width: 12em;
+    vertical-align: middle;
+}
+
+.errors {
+    color: red;
+    font-style: italic;
+}
+
+.form {
+    padding-top: 10px;
+    width: 200px;
+    margin-left: auto;
+    margin-right: auto;    
+}
+
+.form p {
+    padding-bottom: 10px;
+}
+
+.flashed {
+    color: red;
+}

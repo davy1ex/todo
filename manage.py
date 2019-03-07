@@ -1,5 +1,5 @@
 from app import app
-import controllers
+import views
 
 
 if __name__ == '__main__':

@@ -1,15 +1,17 @@
 {% extends 'base.html' %}
 {% block content %}
-    <form action='' method='post' navalidate>
-        {{ form.csrf_token }}
-        {{ form.add_task_field.label }} <br>
-        {{ form.add_task_field() }}
-        <br>
-        {% for task in tasks %}
-            <p>
-                {{ task.id }}. {{ task.body }} 
-            </p>
-        {% endfor %}
-    </form>
+    <div class="task">
+        <form action='' method='post' navalidate>
+            {{ form.csrf_token }}
+            {{ form.add_task_field.label }} <br>
+            {{ form.add_task_field() }}
+            <br>
+            {% for task in tasks %}
+                <p>
+                    {{ task.id }}. {{ task.body }} 
+                </p>
+            {% endfor %}
+        </form>
+    </div>
     
 {% endblock %}

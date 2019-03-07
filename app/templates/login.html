@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block content %}
+    
+    <div class="reg-login">
+
+        <div class="form">
+            <form novalidate="" method="POST" accept="">
+                {{ form.hidden_tag() }}
+                <p>
+                    {{ form.username.label }} <br>
+                    {{ form.username() }} <br>
+
+                    {% for error in form.username.errors %}
+                        <div class="errors"> {{ errors }}} </div>
+                    {% endfor %}
+                </p>
+
+                <p>
+                    {{ form.password.label }} <br>
+                    {{ form.password() }} <br>
+
+                    {% for error in form.password.errors %}
+                        <div class="errors"> {{ errors }}} </div>
+                    {% endfor %}
+                </p>
+                <br>
+                {{ form.submit() }}
+
+                <div class="flashed">
+                    {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                        {% for message in messages %}
+                            {{ message }}
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}    
+                </div>
+
+            </form>    
+        </div>
+            
+    </div>
+    
+{% endblock %}
