@@ -4,7 +4,7 @@
     <div class="reg-login">
 
         <div class="form">
-            <form novalidate="" method="POST" accept="">
+            <form novalidate="" method="POST" action="">
                 {{ form.hidden_tag() }}
                 <p>
                     {{ form.username.label }} <br>
@@ -23,6 +23,8 @@
                         <div class="errors"> {{ errors }}} </div>
                     {% endfor %}
                 </p>
+                <br>
+                {{ form.remember_me() }} {{ form.remember_me.label }}
                 <br>
                 {{ form.submit() }}
 

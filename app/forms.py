@@ -1,6 +1,6 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, SubmitField, BooleanField
-from wtforms.validators import DataRequired, EqualTo, Email
+from wtforms.validators import DataRequired, EqualTo
 
 
 class NewTaskForm(FlaskForm):
@@ -18,4 +18,5 @@ class RegistrationForm(FlaskForm):
 class LoginForm(FlaskForm):
     username = StringField("никнейм", validators=[DataRequired()])
     password = PasswordField("пароль", validators=[DataRequired()])
+    remember_me = BooleanField("запомнить меня")
     submit = SubmitField("войти")

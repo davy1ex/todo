@@ -3,14 +3,24 @@
 <head>
     <title>todo</title>
     <link rel="stylesheet" href="{{ url_for("static", filename="css/base.css") }}">
+        <title>
+            {% if title %}        
+                {{ title }}
+            {% else %}
+                todo
+            {% endif %}
+        </title>
 </head>
 <body>
     <header>
         <ul>
-            <a href="{{ url_for('index') }}">главная</a>
-            <a href="{{ url_for('login') }}">войти</a>
-            <a href="{{ url_for('reg') }}">зарегистироваться</a>
-            <a href="{{ url_for('logout') }}">выйти</a>
+            <a href="{{ url_for('index') }}">главная</a>            
+            {% if not current_user.is_anonymous %}
+                <a href="{{ url_for('logout') }}">выйти</a>
+            {% else %}
+                <a href="{{ url_for('login') }}">войти</a>
+                <a href="{{ url_for('reg') }}">зарегистироваться</a>
+            {% endif %}
         </ul>
         <hr>
     </header>
