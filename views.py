@@ -1,3 +1,7 @@
+# Сделать:
+# -- нормальное айди
+
+
 from flask import render_template, redirect, url_for, flash, request
 from flask_login import login_user, current_user, login_required, logout_user
 from sqlalchemy.orm import exc
@@ -13,21 +17,22 @@ from app.models import Task, User
 @login_required
 def index():
     form = NewTaskForm()
-    tasks = Task.query.all()
+    user = User.query.filter_by(username=current_user.username).first()
+    tasks = Task.query.filter_by(master=user).all()
     if form.validate_on_submit(): # если поле ввода заполненно верно (читать, как "просто заполненно"")
         data_request = form.add_task_field.data
 
         if "+" in data_request:
             """ добавить новую задачу
             синтаксис: "+купить гараж" """
-            new_task = Task(body=form.add_task_field.data[1:])
+            new_task = Task(body=form.add_task_field.data[1:], master=user, self_id=len(tasks)+1)
             db.session.add(new_task)
             db.session.commit()
 
         elif "-a" in data_request:
             """ удалить все задачи
             синтаксис: "-a" """
-            db.session.query(Task).delete()
+            db.session.query(Task).filter_by(master=user).delete()
             db.session.commit()
 
         elif "-" in data_request:
@@ -35,7 +40,7 @@ def index():
             синтаксис: "-4"
             где 4 id (порядковый номер) задачи """
             try:  # ловит неверный id. Если такого нет, то страница просто перезагружается
-                db.session.delete(Task.query.filter_by(id=data_request[1:]).first())
+                db.session.delete(Task.query.filter_by(id=data_request[1:], master=user).first())
                 db.session.commit()
             except exc.UnmappedInstanceError:
                 pass
@@ -80,7 +85,7 @@ def reg():
 
 
 @app.route("/logout")
-# @login_required
+@login_required
 def logout():
     logout_user()
     return redirect(url_for("index"))

@@ -1,5 +1,8 @@
 {% extends 'base.html' %}
 {% block content %}
+    {% if not current_user.is_anonymous %}
+        hello, {{ current_user.username }}
+    {% endif %}
     <div class="task">
         <form action='' method='post' navalidate>
             {{ form.csrf_token }}
@@ -8,7 +11,7 @@
             <br>
             {% for task in tasks %}
                 <p>
-                    {{ task.id }}. {{ task.body }} 
+                    {{ task.self_id }}. {{ task.body }} 
                 </p>
             {% endfor %}
         </form>
