@@ -1,43 +1,45 @@
 {% extends "base.html" %}
+{% block css %}
+    <link rel="stylesheet" href="{{ url_for("static", filename="css/login.css") }}">
+{% endblock %}
 {% block content %}
-    
-    <div class="reg-login">
-
         <div class="form">
             <form novalidate="" method="POST" action="">
-                {{ form.hidden_tag() }}
-                <p>
-                    {{ form.username.label }} <br>
-                    {{ form.username() }} <br>
+                <div class="login_wrapper">
+                    {{ form.hidden_tag() }}
+                    <p>
+                        {{ form.username.label }} <br>
+                        {{ form.username(size=20) }} <br>
 
-                    {% for error in form.username.errors %}
-                        <div class="errors"> {{ errors }}} </div>
-                    {% endfor %}
-                </p>
-
-                <p>
-                    {{ form.password.label }} <br>
-                    {{ form.password() }} <br>
-
-                    {% for error in form.password.errors %}
-                        <div class="errors"> {{ errors }}} </div>
-                    {% endfor %}
-                </p>
-                <br>
-                {{ form.remember_me() }} {{ form.remember_me.label }}
-                <br>
-                {{ form.submit() }}
-
-                <div class="flashed">
-                    {% with messages = get_flashed_messages() %}
-                    {% if messages %}
-                        {% for message in messages %}
-                            {{ message }}
+                        {% for error in form.username.errors %}
+                            <div class="errors"> {{ error }}} </div>
                         {% endfor %}
-                    {% endif %}
-                {% endwith %}    
-                </div>
+                    </p>
 
+                    <p>
+                        {{ form.password.label }} <br>
+                        {{ form.password() }} <br>
+
+                        {% for error in form.password.errors %}
+                            <div class="errors"> {{ error }}} </div>
+                        {% endfor %}
+                    </p>
+                    <br>
+                    {{ form.remember_me() }} {{ form.remember_me.label }}
+                    <br>
+                    {{ form.submit() }}
+
+                    <div class="flashed">
+                        {% with messages = get_flashed_messages() %}
+                        {% if messages %}
+                            {% for message in messages %}
+                                {{ message }}
+                            {% endfor %}
+                        {% endif %}
+                    {% endwith %}    
+                    </div>
+
+                </div>
             </form>    
         </div>
             

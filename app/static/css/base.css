@@ -2,108 +2,67 @@
     margin: 0;
     padding: 0;
     /*dark-theme*/
-    /*background: black;
+    /*background: gray;
     color: white;*/
 }
 
-a {
-    text-decoration: none;
-    color: black; /*white-theme*/
-    /*color: white;*/
-
+header {
+    background: #24292E;
+    height: 40px;
 }
 
-a:visited {
-    color: black; /*white-theme*/
+.head_wrapper {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+header a, a:visited {
+    text-decoration: none;
+    color: white /*white-theme*/
     /*color: white;*/
+
 }
 
 a:hover {
-    color: red;
-}
-
-header {   
-    width: 50%;
-    height: 30px;
-    margin-left: auto;
-    margin-right: auto;
+    color: #BDBFC0;;
 }
 
 header nav {
     width: 100%;
-    padding-top: 5px;
-    align-items: center;
+    padding-top: 10px;
     display: inline-block;
 }
 
 header a {
-    font-size: 1.2em;
+    font-weight: bold;
+    padding: 20px;
 }
-
-
 
 header .left-nav {
     float: left;
-    margin-left: 10px;
     margin-right: auto;
-    /*word-spacing: 40px;*/
 }
 
 header .right-nav {
-    word-spacing: 20px;
     float: right;
     margin-right: 10px;
     height: 30px;
-    /*display: inline-block;*/
     text-align: right;
 }
 
-.reg-login {
-    margin-left: auto;
-    margin-right: auto;
-    align-items: center;
-    width: 100%;
-
-}
-
 .wrapper_content {
-    width: 55%;
-    margin: auto;
-}
-
-.wrapper_task {
-    margin-left: auto;
-    margin-right: auto;
     width: 50%;
-    vertical-align: middle;
-    /*align-items: */
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.task {
-    padding-top: 15%;
-    align-items: center;
-    text-align: center;
+.form {
+    padding-top: 10px;
 }
 
-.task_list {
-    margin-top: 5%;
-    /*align-items: center;*/
-    
-    font-size: 1.5em;
-}
-
-.task_list hr {
-    color: lightgray;
-}
-
-.wrapper_content {
-    align-items: center;
-    text-align: center;
-}
-
-.task_list .content {
-    margin-left: 5px;
-    text-align: left;
+.form p {
+    padding-top: 8%;
 }
 
 .errors {
@@ -111,16 +70,6 @@ header .right-nav {
     font-style: italic;
 }
 
-.form {
-    padding-top: 10px;
-    width: 200px;
-    margin-left: auto;
-    margin-right: auto;    
-}
-
-.form p {
-    padding-bottom: 10px;
-}
 
 .flashed {
     color: red;

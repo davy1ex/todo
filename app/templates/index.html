@@ -1,34 +1,30 @@
 {% extends 'base.html' %}
+{% block css %}
+    <link rel="stylesheet" href="{{ url_for("static", filename="css/index.css") }}">
+{% endblock %}
 {% block content %}
-    <div class="wrapper_task">
+    <!-- <div class="wrapper_task"> -->
+        <div class="hello">
+            Добро пожаловать, {{ current_user.username }}
+        </div>
         <div class="task">
             <form action='' method='post' navalidate>
                 <p>
-                    {{ form.csrf_token }}
-                    <p> {{ form.add_task_field.label }} </p>
-                    {{ form.add_task_field(size=70, autofocus=True) }}<br>
-                </p>                
-                
-                    
-                    <div class="task_list">
-                        
-                        <hr>    
-                        <div class="wrapper_content">
-                            <div class="content">
-                                <br>
-                                {% for task in tasks %}
-                                    <p>
-                                        {{ task.self_id }}. {{ task.body }} 
-                                    </p>
-                                {% endfor %}      
-                            </div>
-                            
-                        </div>
-                    </div>      
-                
+                    <div class="input_task">
+                        {{ form.csrf_token }}
+                        {{ form.add_task_field(autofocus=True, placeholder="заполни меня") }}<br>
+                    </div>                    
+                </p>
+                <div class="task_list">
+                    <hr>
+                    <div class="wrapper_task_content">
+                        {% for task in tasks %}
+                            <p>
+                                {{ task.self_id }}. {{ task.body }}
+                            </p>
+                        {% endfor %}
+                    </div>
+                </div>                
             </form>
-        </div>    
-    </div>
-    
-    
+        </div>
 {% endblock %}

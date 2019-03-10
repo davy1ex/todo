@@ -1,0 +1,41 @@
+.hello {
+    padding-top: 5%;
+    /*width: 70%;*/
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+    font-size: 2.5em;
+}
+
+.task {
+    width: 70%;
+    padding-top: 5%;
+    margin-right: auto;
+    margin-left: auto;    
+    align-items: center;
+    text-align: center;
+}
+
+.task_list {
+    margin-top: 2%;
+    /*width: 50%;*/
+    margin-right: auto;
+    margin-left: auto;
+    font-size: 1.5em;
+}
+
+.task_list hr {
+    color: lightgray;
+
+}
+
+.wrapper_task_content {
+    padding: 10px;
+    margin-right: auto;
+    text-align: left;
+    padding-left: 10px;
+}
+
+input[type="text"] {
+    width: 90%;
+}

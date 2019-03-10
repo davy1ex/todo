@@ -83,6 +83,9 @@ def reg():
             return redirect(url_for("index"))
     return render_template("registration.html", form=form)
 
+@app.route("/help")
+def help():
+    return render_template("help.html")
 
 @app.route("/settings")
 @login_required
