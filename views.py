@@ -40,7 +40,7 @@ def index():
             синтаксис: "-4"
             где 4 id (порядковый номер) задачи """
             try:  # ловит неверный id. Если такого нет, то страница просто перезагружается
-                db.session.delete(Task.query.filter_by(id=data_request[1:], master=user).first())
+                db.session.delete(Task.query.filter_by(self_id=data_request[1:], master=user).first())
                 db.session.commit()
             except exc.UnmappedInstanceError:
                 pass
@@ -83,6 +83,11 @@ def reg():
             return redirect(url_for("index"))
     return render_template("registration.html", form=form)
 
+
+@app.route("/settings")
+@login_required
+def settings():
+    return render_template("settings.html")
 
 @app.route("/logout")
 @login_required

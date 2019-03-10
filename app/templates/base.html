@@ -13,18 +13,30 @@
 </head>
 <body>
     <header>
-        <ul>
-            <a href="{{ url_for('index') }}">главная</a>            
-            {% if not current_user.is_anonymous %}
-                <a href="{{ url_for('logout') }}">выйти</a>
-            {% else %}
-                <a href="{{ url_for('login') }}">войти</a>
-                <a href="{{ url_for('reg') }}">зарегистироваться</a>
-            {% endif %}
-        </ul>
-        <hr>
+        <nav>
+            <div class="left-nav">
+                <!-- <nav> -->
+                    <a href="{{ url_for('index') }}">ГЛАВНАЯ</a>    
+                <!-- </nav>   -->
+            </div>
+            <div class="right-nav">
+                <!-- <nav>                         -->
+                    {% if not current_user.is_anonymous %}
+                        <a href="{{ url_for('logout') }}">ВЫЙТИ</a>
+                    {% else %}
+                        <a href="{{ url_for('login') }}">ВОЙТИ</a>
+                        <a href="{{ url_for('reg') }}">ЗАРЕГИСТРИРОВАТЬСЯ</a>
+                    {% endif %}
+                <!-- </nav>     -->
+            </div>
+        </nav>
+        
     </header>
-    {% block content %}
-    {% endblock %}
+    <hr>
+    <div class="wrapper_content">
+        {% block content %}
+        {% endblock %}    
+    </div>
+    
 </body>
 </html>

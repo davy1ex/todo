@@ -1,20 +1,34 @@
 {% extends 'base.html' %}
 {% block content %}
-    {% if not current_user.is_anonymous %}
-        hello, {{ current_user.username }}
-    {% endif %}
-    <div class="task">
-        <form action='' method='post' navalidate>
-            {{ form.csrf_token }}
-            {{ form.add_task_field.label }} <br>
-            {{ form.add_task_field() }}
-            <br>
-            {% for task in tasks %}
+    <div class="wrapper_task">
+        <div class="task">
+            <form action='' method='post' navalidate>
                 <p>
-                    {{ task.self_id }}. {{ task.body }} 
-                </p>
-            {% endfor %}
-        </form>
+                    {{ form.csrf_token }}
+                    <p> {{ form.add_task_field.label }} </p>
+                    {{ form.add_task_field(size=70, autofocus=True) }}<br>
+                </p>                
+                
+                    
+                    <div class="task_list">
+                        
+                        <hr>    
+                        <div class="wrapper_content">
+                            <div class="content">
+                                <br>
+                                {% for task in tasks %}
+                                    <p>
+                                        {{ task.self_id }}. {{ task.body }} 
+                                    </p>
+                                {% endfor %}      
+                            </div>
+                            
+                        </div>
+                    </div>      
+                
+            </form>
+        </div>    
     </div>
+    
     
 {% endblock %}

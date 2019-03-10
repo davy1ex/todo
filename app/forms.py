@@ -4,7 +4,7 @@ from wtforms.validators import DataRequired, EqualTo
 
 
 class NewTaskForm(FlaskForm):
-    add_task_field = StringField('What you want do?', validators=[DataRequired()])
+    add_task_field = StringField("Что хочешь сделать?", validators=[DataRequired()])
 
 
 class RegistrationForm(FlaskForm):

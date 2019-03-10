@@ -1,48 +1,109 @@
 * {
     margin: 0;
     padding: 0;
+    /*dark-theme*/
+    /*background: black;
+    color: white;*/
 }
 
 a {
     text-decoration: none;
-    color: black;
+    color: black; /*white-theme*/
+    /*color: white;*/
+
 }
 
 a:visited {
-    color: black;
+    color: black; /*white-theme*/
+    /*color: white;*/
 }
 
 a:hover {
     color: red;
 }
 
-header ul {
+header {   
+    width: 50%;
+    height: 30px;
     margin-left: auto;
     margin-right: auto;
-    width: 450px;
-    white-space: : 10px;
-    text-align: center;
+}
+
+header nav {
+    width: 100%;
+    padding-top: 5px;
+    align-items: center;
+    display: inline-block;
 }
 
 header a {
-    padding: 10px;
+    font-size: 1.2em;
+}
+
+
+
+header .left-nav {
+    float: left;
+    margin-left: 10px;
+    margin-right: auto;
+    /*word-spacing: 40px;*/
+}
+
+header .right-nav {
+    word-spacing: 20px;
+    float: right;
+    margin-right: 10px;
+    height: 30px;
+    /*display: inline-block;*/
+    text-align: right;
 }
 
 .reg-login {
     margin-left: auto;
     margin-right: auto;
     align-items: center;
-    /*width: 13em;*/
     width: 100%;
-    /*vertical-align: middle;*/
 
 }
 
-.task {
+.wrapper_content {
+    width: 55%;
+    margin: auto;
+}
+
+.wrapper_task {
     margin-left: auto;
     margin-right: auto;
-    width: 12em;
+    width: 50%;
     vertical-align: middle;
+    /*align-items: */
+}
+
+.task {
+    padding-top: 15%;
+    align-items: center;
+    text-align: center;
+}
+
+.task_list {
+    margin-top: 5%;
+    /*align-items: center;*/
+    
+    font-size: 1.5em;
+}
+
+.task_list hr {
+    color: lightgray;
+}
+
+.wrapper_content {
+    align-items: center;
+    text-align: center;
+}
+
+.task_list .content {
+    margin-left: 5px;
+    text-align: left;
 }
 
 .errors {
@@ -64,3 +125,8 @@ header a {
 .flashed {
     color: red;
 }
+
+/*.dark-theme {
+    background: black;
+    color: white;
+}*/
