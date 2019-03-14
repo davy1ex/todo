@@ -9,10 +9,12 @@
 header {
     background: #24292E;
     height: 40px;
+    min-width: 650px;
 }
 
 .head_wrapper {
     width: 50%;
+    min-width: 650px;   
     margin-left: auto;
     margin-right: auto;
 }
@@ -25,7 +27,7 @@ header a, a:visited {
 }
 
 a:hover {
-    color: #BDBFC0;;
+    color: #BDBFC0;
 }
 
 header nav {

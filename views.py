@@ -1,5 +1,5 @@
 # Сделать:
-# -- нормальное айди
+#
 
 
 from flask import render_template, redirect, url_for, flash, request
@@ -44,6 +44,11 @@ def index():
                 db.session.commit()
             except exc.UnmappedInstanceError:
                 pass
+        elif "h" in data_request or "help" in data_request:
+            return redirect("/help")
+
+        elif "q" in data_request or "quite" in data_request:
+            return redirect("/logout")
 
         return redirect(url_for("index"))
 
@@ -80,17 +85,20 @@ def reg():
             user.set_password(form.password.data)
             db.session.add(user)
             db.session.commit()
-            return redirect(url_for("index"))
+            return redirect("/login")
     return render_template("registration.html", form=form)
+
 
 @app.route("/help")
 def help():
     return render_template("help.html")
 
+
 @app.route("/settings")
 @login_required
 def settings():
     return render_template("settings.html")
+
 
 @app.route("/logout")
 @login_required
